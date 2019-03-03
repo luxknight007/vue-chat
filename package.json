@@ -1,14 +1,19 @@
 {
-  "name": "vue-chat",
+  "name": "vuechat",
   "version": "0.1.0",
-  "private": true,
+  "main": "dist/vuechat.common.js",
+  "unpkg": "dist/vuechat.umd.min.js",
+  "jsdelivr": "dist/vuechat.umd.min.js",
+  "private": false,
   "scripts": {
+    "start": "vue-cli-service serve",
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue build -t lib src/index.js --name vuechat",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "socket.io-client": "^2.2.0",
+    "material-icons": "^0.2.3",
     "vue": "^2.6.6"
   },
   "devDependencies": {
@@ -18,6 +23,8 @@
     "babel-eslint": "^10.0.1",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
     "vue-template-compiler": "^2.5.21"
   },
   "eslintConfig": {
@@ -43,5 +50,8 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "publishConfig": {
+    "registry": "http://localhost:8081/repository/npm-private/"
+  }
 }
